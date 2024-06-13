@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="H.NotifyIcon" Version="2.0.131" />
+    <PackageReference Include="LibVLCSharp" Version="3.8.5" />
+    <PackageReference Include="LibVLCSharp.WinForms" Version="3.8.5" />
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.20" />
+  </ItemGroup>
+
+</Project>
