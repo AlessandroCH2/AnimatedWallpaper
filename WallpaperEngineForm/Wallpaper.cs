@@ -94,7 +94,7 @@ namespace AnimatedWallpaper
             this.Controls.Add(videoView);
 
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 1000;
+            timer.Interval = 100;
             timer.Tick += tickEx;
             timer.Start();
 
