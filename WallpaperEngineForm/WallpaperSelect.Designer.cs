@@ -35,13 +35,18 @@
             wallpaperList = new ListBox();
             browse = new Button();
             reload = new Button();
+            previewPlayer = new LibVLCSharp.WinForms.VideoView();
+            label3 = new Label();
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)previewPlayer).BeginInit();
             SuspendLayout();
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Location = new Point(12, 418);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(676, 23);
+            textBox1.Size = new Size(842, 23);
             textBox1.TabIndex = 0;
             // 
             // label1
@@ -55,9 +60,10 @@
             // 
             // applyButton
             // 
-            applyButton.Location = new Point(694, 418);
+            applyButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            applyButton.Location = new Point(613, 195);
             applyButton.Name = "applyButton";
-            applyButton.Size = new Size(75, 23);
+            applyButton.Size = new Size(241, 36);
             applyButton.TabIndex = 2;
             applyButton.Text = "Apply";
             applyButton.UseVisualStyleBackColor = true;
@@ -78,23 +84,25 @@
             wallpaperList.ItemHeight = 15;
             wallpaperList.Location = new Point(12, 27);
             wallpaperList.Name = "wallpaperList";
-            wallpaperList.Size = new Size(757, 349);
+            wallpaperList.Size = new Size(587, 349);
             wallpaperList.TabIndex = 5;
             wallpaperList.SelectedValueChanged += wallpaperList_SelectedValueChanged;
             // 
             // browse
             // 
-            browse.Location = new Point(694, 382);
+            browse.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            browse.Location = new Point(613, 279);
             browse.Name = "browse";
-            browse.Size = new Size(75, 23);
+            browse.Size = new Size(241, 36);
             browse.TabIndex = 6;
-            browse.Text = "Browse";
+            browse.Text = "Browse More...";
             browse.UseVisualStyleBackColor = true;
             browse.Click += browse_Click;
             // 
             // reload
             // 
-            reload.Location = new Point(613, 382);
+            reload.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            reload.Location = new Point(524, 382);
             reload.Name = "reload";
             reload.Size = new Size(75, 23);
             reload.TabIndex = 7;
@@ -102,11 +110,44 @@
             reload.UseVisualStyleBackColor = true;
             reload.Click += reload_Click;
             // 
+            // previewPlayer
+            // 
+            previewPlayer.BackColor = Color.Black;
+            previewPlayer.Location = new Point(613, 27);
+            previewPlayer.MediaPlayer = null;
+            previewPlayer.Name = "previewPlayer";
+            previewPlayer.Size = new Size(241, 135);
+            previewPlayer.TabIndex = 8;
+            previewPlayer.Text = "videoView1";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(613, 165);
+            label3.Name = "label3";
+            label3.Size = new Size(48, 15);
+            label3.TabIndex = 9;
+            label3.Text = "Preview";
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button1.Location = new Point(613, 237);
+            button1.Name = "button1";
+            button1.Size = new Size(241, 36);
+            button1.TabIndex = 10;
+            button1.Text = "Open Folder";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // WallpaperSelect
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(781, 453);
+            ClientSize = new Size(866, 453);
+            Controls.Add(button1);
+            Controls.Add(label3);
+            Controls.Add(previewPlayer);
             Controls.Add(reload);
             Controls.Add(browse);
             Controls.Add(wallpaperList);
@@ -120,6 +161,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Select Wallpaper";
             Load += WallpaperSelect_Load;
+            ((System.ComponentModel.ISupportInitialize)previewPlayer).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -133,5 +175,8 @@
         private ListBox wallpaperList;
         private Button browse;
         private Button reload;
+        private LibVLCSharp.WinForms.VideoView previewPlayer;
+        private Label label3;
+        private Button button1;
     }
 }

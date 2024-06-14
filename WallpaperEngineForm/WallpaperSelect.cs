@@ -4,11 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AnimatedWallpaper
 {
@@ -22,8 +24,11 @@ namespace AnimatedWallpaper
                 textBox1.Text = File.ReadAllText("videoLink.txt");
             }
             catch (Exception ex) { }
+            LibVLC _libVLC = new LibVLC("--input-repeat=100");
+            MediaPlayer _mp = new MediaPlayer(_libVLC);
 
 
+            previewPlayer.MediaPlayer = _mp;
 
         }
 
@@ -61,6 +66,12 @@ namespace AnimatedWallpaper
             if (wallpaperList.SelectedItems.Count == 0) return;
             string text = wallpaperList.SelectedItem.ToString();
             textBox1.Text = Path.GetFullPath(text);
+
+
+            LibVLC _libVLC = new LibVLC("--input-repeat=100");
+
+
+            previewPlayer.MediaPlayer.Play(new Media(_libVLC, new Uri(Path.GetFullPath(text))));
         }
 
         private void browse_Click(object sender, EventArgs e)
@@ -78,6 +89,17 @@ namespace AnimatedWallpaper
 
                 wallpaperList.Items.Add(file);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo()
+            {
+                Arguments = Path.GetFullPath("Wallpapers"),
+                FileName = "explorer.exe"
+            };
+
+        Process.Start(startInfo);
         }
     }
 }
